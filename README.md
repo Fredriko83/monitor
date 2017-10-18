@@ -17,7 +17,7 @@ post servers to be monitored to /servers
 "ip":"192..."  
 }
 
-and contact to /contact
+and contact to /contact  
 {  
 "name":"Node..."  
 "email":"email@email.com..."  
