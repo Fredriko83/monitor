@@ -11,7 +11,7 @@ MAIL_PASSWORD=supersecretpassword
 DB_URI=mongodb://mongo:supersecretpassword@ds117935.mlab.com:17935/monitor  
 (DB_URI not needed if started with docker-compose)
 
-post servers to be monitored to /servers
+post servers to be monitored to /servers  
 {  
 "name":"Node..."  
 "ip":"192..."  
