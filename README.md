@@ -5,12 +5,11 @@ ansible is.
 
 # Create .env file in the root of the project containing:
 
-MAIL_USER=email@gmail.com
-MAIL_SMTP=smtp.gmail.com
-MAIL_PASSWORD=supersecretpassword
-DB_URI=mongodb://mongo:supersecretpassword@ds117935.mlab.com:17935/monitor
-
-DB_URI not needed if started with docker-compose.
+MAIL_USER=email@gmail.com  
+MAIL_SMTP=smtp.gmail.com  
+MAIL_PASSWORD=supersecretpassword  
+DB_URI=mongodb://mongo:supersecretpassword@ds117935.mlab.com:17935/monitor  
+(DB_URI not needed if started with docker-compose)
 
 post servers to be monitored to /servers
 {
