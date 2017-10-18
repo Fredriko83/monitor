@@ -12,19 +12,19 @@ DB_URI=mongodb://mongo:supersecretpassword@ds117935.mlab.com:17935/monitor
 (DB_URI not needed if started with docker-compose)
 
 post servers to be monitored to /servers
-{
-"name":"Node..."
-"ip":"192..."
+{  
+"name":"Node..."  
+"ip":"192..."  
 }
 
 and contact to /contact
-{
-"name":"Node..."
-"email":"email@email.com..."
+{  
+"name":"Node..."  
+"email":"email@email.com..."  
 }
 
 
-get /alert starts monitoring
+get /alert starts monitoring  
 get /stop stops it 
 
 There should also be an overview at / but this isn't implemented ATM...
