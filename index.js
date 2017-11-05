@@ -16,6 +16,7 @@ const config = require('./config');
 const routes = require('./routes');
 const index = require('./routes/index');
 
+const monitor = require('./lib/monitor')
 const app  = express();
 
 app.set('views', path.join(__dirname, 'views'));
@@ -33,6 +34,8 @@ app.use(morgan('tiny'));
 app.use('/', index);
 // API
 app.use('/', routes);
+
+monitor.monitorStart();
 
 app.listen(config.server.port, () => {
   console.log(`Port: ${config.server.port}`);

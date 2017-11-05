@@ -1,12 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-//const Timestamp = require('../times')
+
+const timestampSchema = new Schema({
+  date: { type: Date, required: true },
+  active: { type: Boolean, required: true },
+  responseTime: { type: Number, required: true }
+});
 
 const serverSchema = new Schema({
   name: { type: String, required: true },
   address: { type: String, required: true },
-  timestamps: [{ type: Schema.Types.ObjectId, ref: 'Timestamp' }]
-  //timestamps: [Timestamp]
+  timestamps: [timestampSchema]
 });
 
 module.exports = mongoose.model('Server', serverSchema);

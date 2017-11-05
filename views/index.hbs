@@ -5,13 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Monitor</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+    <style>
+    canvas{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+    </style>
 </head>
 <body>
     <h1>{{title}}</h1>
     <ul class="server_list">
         {{#each servers}}
-            <li>{{this}}</li>
+            <li>{{this.name}}</li>
+            
+<canvas id="{{this.name}}" width="500" height="200"></canvas>
+
+<script>
+var ctx = document.getElementById("{{this.name}}");
+var scatterChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["-12", "-11", "-10", "-9", "-8", "-7", "-6", "-5", "-4", "-3", "-2", "-1", "0"],
+        datasets: [{
+            label: '{{this.name}}',
+            data: [{{this.avg}}]
+        }]
+    },
+    options: {
+        responsive: false,
+        scales: {
+          xAxes: [{
+              ticks:{
+                  stepSize : 10,
+
+              },
+              stacked: true,
+            gridLines: {
+                    lineWidth: 0,
+                    color: "rgba(255,255,255,0)"
+                }
+          }],
+          yAxes: [{
+
+              stacked: true,
+               ticks: {
+                  min: 0,
+                  stepSize: 10,
+              }
+
+          }]
+      }
+    }
+});
+</script>
+
         {{/each}}
 </ul>
+
+
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+        </script>        
 </body>
 </html>
