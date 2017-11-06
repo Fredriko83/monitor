@@ -1,42 +1,30 @@
 # monitor
+Simple tool for monitoring servers via ping and emailing when somethings down. Not intended for any real monitoring,
+just a quick monitoring tool for a course in server configuration where monitoring isn't the focus, getting it up and runnging with
+ansible is.
 
-[![generator-api](https://img.shields.io/badge/built%20with-generator--api-green.svg)](https://github.com/ndelvalle/generator-api)
+# Create .env file in the root of the project containing:
 
+MAIL_USER=email@gmail.com  
+MAIL_SMTP=smtp.gmail.com  
+MAIL_PASSWORD=supersecretpassword  
+DB_URI=mongodb://mongo:supersecretpassword@ds117935.mlab.com:17935/monitor  
+(DB_URI not needed if started with docker-compose)
 
+post servers to be monitored to /servers  
+{  
+"name":"Node..."  
+"ip":"192..."  
+}
 
-
-
-
-
-## dependencies
-
-[Docker](https://docs.docker.com/engine/installation/) :whale: & [docker-compose](https://docs.docker.com/compose/install/).
-
-## developing
-
-run locally run using docker-compose:
-
-```bash
-sudo docker-compose up
-```
-
-the app runs on `localhost:8080`
-
-## production
-
-build the Docker :whale: container and run it:
-
-_you'll likely be consuming mongodb as a service, so make sure you set the env var to connect to it._
-
-```bash
-sudo docker build -t <image-name> .
-sudo docker run \
-  -p <host-port>:8080 \
-  -d <image-name> \
-  -e MONGO_DB_URI=mongodb://<username>:<password>@<host>:<port> \
-  npm run start
-```
+and contact to /contact  
+{  
+"name":"Node..."  
+"email":"email@email.com..."  
+}
 
 
+get /alert starts monitoring  
+get /stop stops it 
 
---------------------------------------------------------------------------------
+There should also be an overview at / but this isn't implemented ATM...
